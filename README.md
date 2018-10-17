@@ -1,0 +1,2 @@
+# dcrwords
+Decred Glossary
