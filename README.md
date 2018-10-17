@@ -4,7 +4,7 @@ dcrwords
 
 **Ticket**: A ticket is...
 
- ### Ticket status 
+Ticket status terms
   Immature ticket:
   Live ticket:
   Missed ticket:
