@@ -2,59 +2,83 @@ dcrwords
 
 ## Decred Glossary
 
-**Distributed ledger:** A ledger recording transactions between addresses, every node on the network holds a copy of the same ledger, commonly referred to as the "blockchain".
+**Distributed ledger:** 
+A cryptographically secure ledger, compased of nodes in a network, where each node holds a copy of the same ledger. 
 
-**Consensus rules:** There must be consensus between every node on the network about what the rules are, e.g. who can make new blocks, what can blocks contain and how should they be structured.
+**Consensus rules:** 
+Rules, encoded in software, that allow a network of nodes to reach an agreement about a set of data. Rules include what data blocks can contain, how block data is structured, and how nodes validate blocks. 
 
-**Protocol rules:** See consensus rules.
+**Protocol rules:** 
+See consensus rules. (SETH: If we make terms into subheadings (###?), we can do relative links here)
 
-**Block:** Transactions are written to the distributed ledger in blocks. Decred's difficulty adjusts such that new blocks are found every five minutes on average.
+**Block:** 
+The data structure transactions are bundled into before being written into the distributed ledger. Decred's difficulty adjusts such that new blocks are found every five minutes on average.
 
-Wallet: 
+**Wallet:**
+A file that stores private keys. Wallets usually contain a software client which allows its owner to view and create transactions on the  blockchain it supports. Decred's native wallet, [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/) is available in GUI and Command Line Interface (CLI) form (for advanced users). Decred also has a [web wallet](https://docs.decred.org/getting-started/user-guides/web/) and is supported by numerous [3rd party wallets](https://decred.org/downloads/).
 
-**Seed:** A series of 33 words that is used to generate the private key for a wallet. Anyone who has the seed for a wallet can spend any DCR it holds.
+**Seed:** 
+A series of 33 words that is used to generate the private key for a wallet. Anyone who has the seed for a wallet can spend any DCR it holds.
 
-**Private passphrase:** wallet.db files encrypted with a private passphrase cannot be used without that passphrase.
+**Private passphrase:** 
+A passphrate that is used to encrypt wallet.db files. wallet.db files encrypted with a private passphrase cannot be used without that passphrase.
 
-**Account:** A single Decred wallet can be used to operate multiple independent accounts (i.e. DCR transfers between accounts are on-chain transactions).
+**Account:** 
+A single Decred wallet can be used to operate multiple independent accounts (i.e. DCR transfers between accounts are on-chain transactions).(SETH: Have not seen the concept of an 'account' before, outside of Politeia. Don't see it in the dcrdocs for wallets...Is a wallet/account just software that controls multiple addresses? Related to HD wallets?)
 
-Address:
+**Address:**
+The cryptographic hash of a given public key. Addresses are publicly viewable on the blockchain and can be used to send and receive transactions, similar to an email address. 
 
-Private key:
+**Private key:**
+A string of data that allows you to access and spend DCR stored in a specific address. When sending DCR from one address to another, the wallet must sign the transaction with the private key of the sending address.
 
-Public key:
+**Public key:**
+A long string of alphanumeric characters generated algorithmically from a private key. The user’s public key is used to prove that a transaction was signed using their private key.
 
-Extended public key:
+**Extended public key:**
+A public key extended using [Hierarchical Deterministic (HD) key creation](https://bitcoin.org/en/developer-guide#hierarchical-deterministic-key-creation) and transfer protocol, which allows creation of child keys from parent keys in a heirarchy. Wallets using the HD protocol are called HD wallets.
 
-Watch-only:
+**Watch-only:**
+An address or pubkey script stored in the wallet without the corresponding private key, allowing the wallet to watch for outputs but not spend them.
 
-Proof-of-Stake voting:
+**Proof-of-Stake (PoS) voting:**
+The mechanism by which ticket holders vote to validate blocks confirmed by PoW miners (thus providing a check on PoW miners), earn staking rewards, and vote on consensus rule changes and Politeia proposals. To vote, a ticket holder's wallet must be online when called to vote. Ticket holders may vote using their own personal wallet or utilize Voting Service Providers (VSP) (stakepools) to vote for them, without giving up custody of their DCR. 
 
 **[Hybrid PoW/PoS:](https://docs.decred.org/research/hybrid-design/)** 
 
-Block reward:
+**Block reward:**
+A reward (in DCR) given to PoW miners for validating a block of transactions. The PoW difficulty is calculated from the exponentially weighted average of differences in previous block times. (Seth: check for accuracy. Last sentence taken from white paper (2015))
 
 **Ticket**: Decred holders can time-lock DCR in exchange for tickets. Tickets grant their holder votes, and it is through ticket voting that major governance decisions are made. The DCR locked to buy a ticket is unlocked after that ticket is called to vote on-chain (averages around one month, maximum around 4 months), along with a reward. Around 0.5% of tickets are not called before they expire, in this case the DCR is un-locked but  no reward granted.
 
-**[Consensus rules voting](https://docs.decred.org/getting-started/user-guides/agenda-voting/)** : Changes to Decred's consensus rules can only be made through an on-chain voting process which lasts for around one month, the change is made if at least 75% of votes are in favor. 
+**[Consensus rules voting](https://docs.decred.org/getting-started/user-guides/agenda-voting/)** : Changes to Decred's consensus rules can only be made through an on-chain voting process which lasts for around one month. The change is made if at least 75% of votes are in favor. 
 
 **Agenda voting:** see consensus rules voting
 
-**Quorum:** A minimum level of participation required in order for a decision-making process to produce a valid outcome. Changes to the consensus rules require at least 10% of votes to be for or against the change in order to be valid.
+**Quorum:** 
+A minimum level of participation required in order for a decision-making process to produce a valid outcome. Changes to the consensus rules require at least 10% of votes to be for or against the change in order to be valid.
 
-**Rule change proposal:** Consensus rules votes concern a specific rule change proposal - which must be implemented in latent code within the software that the network's nodes are running. If the proposal passes, the latent code activates one month later.
+**Rule change proposal:** 
+A proposal to change the consensus rules of the Decred blockchain. Rule change proposals must be implemented in latent code within the software running the network's nodes. If the proposal passes, the latent code activates one month later.
 
-**[Decred change proposal (DCP)](https://github.com/decred/dcps):**  Design document that describes potential protocol or consensus changes to Decred. DCPs primarily serve for documentation, fostering cross-implementation compatibility, and helping ensure proper engineering rigor is followed.
+**[Decred change proposal (DCP)](https://github.com/decred/dcps):**  
+A design document that describes potential protocol or consensus changes to Decred. DCPs primarily serve for documentation, fostering cross-implementation compatibility, and helping ensure proper engineering rigor is followed.
 
-Stake version interval: 
+**Stake Version Interval (SVI):** 
+An interval of blocks 2016 blocks (~1 week) which is used to determine if a vote on concensus rules can begin. Before a vote on consensus rule changes can begin, 75% of tickets that vote during a Stake Version Interval (SVI) must be using software that contains the latent rule change (i.e. software which will automatically implement the proposed rule change if the vote succeeds). 
 
-Rule change interval:
+**Rule Change Interval (RCI):**
+An interval of 8064 blocks (~4 weeks) in which ticket holders can vote on consensus rule changes. A Rule Change Interval (RCI) consists of four Stake Version Intervals (SVI) (2016 blocks (~1 week)). Once the conditions for a vote have been met during an SVI, voting is scheduled to begin on the first block of the next RCI. Because there are four SVIs per RCI, it can take up to 6048 blocks [3 SVIs] for the next RCI to begin).
 
-**[Ticket pool](https://docs.decred.org/mining/proof-of-stake/):** Ticket pool refers to live tickets that are available to be called. The target size for the ticket pool is 40,960.
 
-**Ticket price:** The ticket price is the amount of DCR one must time-lock in order to buy a ticket. The ticket price goes up or down depending on whether the ticket pool holds more or less tickets than the target 40,960. The algorithm for setting the ticket price was changed by [DCP-0001](https://github.com/decred/dcps/blob/master/dcp-0001/dcp-0001.mediawiki), the first consensus rules change to be adopted after an on-chain vote. 
+**[Ticket pool](https://docs.decred.org/mining/proof-of-stake/):** 
+The pool of live tickets that are available to be called to vote. The target size for the ticket pool is 40,960.
 
-**Ticket-splitting:** Refers to buying part of a ticket, which is possible without giving up custody of one's DCR when coordinating with other parties who will buy the other parts of a ticket. Ticket-splitting is currently coordinated through the #ticket-splitting channel.
+**Ticket price:** 
+The amount of DCR one must time-lock in order to buy a ticket. The ticket price is algorithmically adjusted with the goal of keeping the ticket pool at an optimal size of 40,960 tickets. The algorithm for setting the ticket price was changed by [DCP-0001](https://github.com/decred/dcps/blob/master/dcp-0001/dcp-0001.mediawiki), the first consensus rules change to be adopted using an on-chain vote. 
+
+**Ticket-splitting:** 
+The process of buying part of a ticket. This done by coordinating with other parties who will buy the other parts of a ticket. This can be done without giving up custody to your DCR. The minimum amount of DCR that can be put into a split ticket is 5 DCR. Ticket-splitting is currently coordinated through the #ticket-splitting channel on the Decred slack. 
 
 **Ticket status terms**
 
