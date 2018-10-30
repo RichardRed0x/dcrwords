@@ -15,7 +15,7 @@ See consensus rules.
 The data structure transactions are bundled into before being written into the distributed ledger. Decred's difficulty adjusts such that new blocks are found every five minutes on average.
 
 **Wallet:**
-A file that stores private keys. Wallets typically contain a software client which allows its owner to view and create transactions on the  blockchain. Decred's native wallet, [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/) is available in GUI and Command Line Interface (CLI) form (for advanced users). Decred also has a [web wallet](https://docs.decred.org/getting-started/user-guides/web/) and is supported by numerous [3rd party wallets](https://decred.org/downloads/).
+A file that stores private keys. Wallets typically contain a software client which allows its owner to view and create transactions on the  blockchain. Decred's native wallet daemon, can be accesseed via [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/), which provides a GUI interface, as well as the Command Line Interface (CLI) form (for advanced users). Decred also has a [web wallet](https://docs.decred.org/getting-started/user-guides/web/) and is supported by numerous [3rd party wallets](https://decred.org/downloads/).
 
 **Seed:** 
 A series of 33 words that is used to generate the private key for a wallet. Anyone who has the seed for a wallet can spend any DCR it holds.
@@ -24,7 +24,7 @@ A series of 33 words that is used to generate the private key for a wallet. Anyo
 A passphrate that is used to encrypt wallet.db files. wallet.db files encrypted with a private passphrase cannot be used without that passphrase.
 
 **Account:** 
-A single Decred wallet can be used to operate multiple independent accounts (i.e. DCR transfers between accounts are on-chain transactions).(SETH: Have not seen the concept of an 'account' before, outside of Politeia. Don't see it in the dcrdocs for wallets...Is a wallet/account just software that controls multiple addresses? Related to HD wallets?)
+Accounts allow you to keep separate records of your DCR funds. Transferring DCR across accounts will create a transaction on the blockchain.
 
 **Address:**
 The cryptographic hash of a given public key. Addresses are publicly viewable on the blockchain and can be used to send and receive transactions, similar to an email address. 
@@ -36,19 +36,19 @@ A string of data that allows you to access and spend DCR stored in address assoc
 A long string of alphanumeric characters generated algorithmically from a private key. The user’s public key is used to prove that a transaction was signed using their private key.
 
 **Extended public key:**
-A public key extended using [Hierarchical Deterministic (HD) key creation](https://bitcoin.org/en/developer-guide#hierarchical-deterministic-key-creation) and transfer protocol, which allows creation of child keys from parent keys in a heirarchy. Wallets using the HD protocol are called HD wallets. (SETH: review for accuracy)
+A public key extended using [Hierarchical Deterministic (HD) key creation](https://bitcoin.org/en/developer-guide#hierarchical-deterministic-key-creation) and transfer protocol, which allows creation of child keys from parent keys in a heirarchy. Wallets using the HD protocol are called HD wallets. 
 
 **Watch-only:**
 An address or pubkey script stored in the wallet without the corresponding private key, allowing the wallet to watch for outputs but not spend them.
 
 **Proof-of-Stake (PoS) voting:**
-The mechanism by which ticket holders vote to validate blocks confirmed by PoW miners (thus providing a check on PoW miners), earn staking rewards, and vote on consensus rule changes and Politeia proposals. To vote, a ticket holder's wallet must be online when called to vote. Ticket holders may vote using their own personal wallet or utilize Voting Service Providers (VSP) (stakepools) to vote for them. (SETH: review for accuracy). 
+The mechanism by which ticket holders vote to approve blocks confirmed by PoW miners (thus providing a check on PoW miners), earn staking rewards, and vote on consensus rule changes and Politeia proposals. 
 
 **[Hybrid PoW/PoS:](https://docs.decred.org/research/hybrid-design/)** 
-In Decred, a [hybrid PoW/PoS system](https://docs.decred.org/research/hybrid-design/) is used, whereby blocks mined by PoW miners must be validated by ticket holders, which are pseudorandomly selected from the ticket pool. This provides a check on PoW miners and increases the overall cost of attacking the network. When a block is mined, 60% of the block reward goes to the PoW miner, 30% goes to the holders of  tickets called to vote (validate blocks), and 10% goes to the Decred Treasury to fund the project's development. (SETH: check for accuracy. Was pretty brief here. Not sure if we want to elaborate further..). 
+In Decred, a [hybrid PoW/PoS system](https://docs.decred.org/research/hybrid-design/) is used, whereby blocks mined by PoW miners must be approved by ticket holders, which are pseudorandomly selected from the ticket pool. This provides a check on PoW miners and increases the overall cost of attacking the network. When a block is approved, 60% of the block reward goes to the PoW miner, 30% goes to the holders of  tickets called to vote (approve blocks), and 10% goes to the Decred Treasury to fund the project's development.
 
 **Block reward:**
-A reward (in DCR) given to PoW miners for successfully validating a new block of transactions. As in Bitcoin, the block reward [decays exponentially](https://docs.decred.org/advanced/inflation/) with block height (length of blockchain). However, Decred’s algorithm interpolates this decay over time so as not to produce market shocks, as typically seen when Bitcoin's difficulty halves. The block reward started at 31.19582664 and it adjusts every 6,144 blocks (approximately 21.33 days) by reducing by a factor of 100/1011.
+A reward (in DCR) split between PoW miners, ticket holders, and the Treasury for successfully approving a block of transactions. As in Bitcoin, the block reward [decays exponentially](https://docs.decred.org/advanced/inflation/) with block height (length of blockchain). However, Decred’s algorithm interpolates this decay over time so as not to produce market shocks, as typically seen when Bitcoin's difficulty halves. The block reward started at 31.19582664 and it adjusts every 6,144 blocks (approximately 21.33 days) by reducing by a factor of 100/1011.
 
 **Ticket**: 
 Decred holders can time-lock DCR in exchange for tickets. Tickets grant their holder the ability to vote, and it is through ticket voting that major governance decisions are made. The DCR locked to buy a ticket is unlocked after that ticket is called to vote on-chain (this averages around one month, maximum around 4 months), along with a reward. Around 0.5% of tickets are not called before they expire; in this case the DCR is un-locked but no reward is granted.
@@ -62,7 +62,7 @@ Changes to Decred's consensus rules can only be made through an on-chain voting 
 The minimum level of participation required in order for a decision-making process to produce a valid outcome. Changes to the consensus rules require at least 10% of votes to be for or against the change in order to be valid.
 
 **Rule change proposal:** 
-A proposal to change the consensus rules of the Decred blockchain. Rule change proposals must be implemented in latent code within the software running the network's nodes. If the proposal passes, the latent code activates one month later. (SETH: review for accuracy)
+A proposal to change the consensus rules of the Decred blockchain. Rule change proposals must be implemented in latent code within the software running the network's nodes. If the proposal passes, the latent code activates one month later. 
 
 **[Decred change proposal (DCP)](https://github.com/decred/dcps):**  
 A design document that describes potential protocol or consensus changes to Decred. DCPs primarily serve for documentation, fostering cross-implementation compatibility and helping ensure proper engineering rigor is followed.
@@ -111,7 +111,7 @@ Transactions relating to ticket buying and ticket voting rewards.
 Transactions waiting to be mined.
 
 **Block header:** 
-A 120 byte (when serialized) header used to identify a particular block, which is hashed repeatedly to create proof of work for mining rewards. (SETH: review for accuracy)
+A 120 byte (when serialized) header used to identify a particular block, which is hashed repeatedly to create proof of work for mining rewards. 
 
 **Stakepool:** 
 see Voting Service Provider
@@ -132,7 +132,7 @@ The [Decred Treasury](https://explorer.dcrdata.org/address/Dcur2mcGjmENx4DhNqDct
 A system for facilitating the [submission and discussion of proposals](https://proposals.decred.org/) in an environment with transparent censorship. 
 
 **Proof-of-Work mining:**
-The process by which Proof-of-Work (PoW) miners validate blocks of transactions. In this process, miners compute hashes until the block header is below the target difficulty. (SETH: review for accuracy. Expand?)
+The process by which Proof-of-Work (PoW) miners validate blocks of transactions. In this process, miners compute hashes until the block header is below the target difficulty. 
 
 **Difficulty:**
 Difficulty is a measure of how difficult it is to mine a new block (i.e. find a hash below a given target). In Decred, the PoW difficulty is calculated from the exponentially weighted average of differences in previous block times.  
@@ -141,7 +141,7 @@ Difficulty is a measure of how difficult it is to mine a new block (i.e. find a 
 A fee paid to have your transaction included in a block. The default transaction fee for Decred is 0.001 DCR/kB.
 
 **Miners:**
-Miners help secure the network via Proof-of-Work (PoW) mining. Miners recieve block rewards for successfully validating blocks. 
+Miners help secure the network via Proof-of-Work (PoW) mining. Miners recieve block rewards and transaction fees for successfully validating blocks. 
 
 **Mining Pool:**
 A group of miners who share (pool) their computational resources to mine DCR. When a member of a mining pool successfully mines a block, the rewards are split among all pool members in proportion to their hashpower contributed to the pool. 
