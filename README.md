@@ -15,7 +15,7 @@ See consensus rules.
 The data structure transactions are bundled into before being written into the distributed ledger. Decred's difficulty adjusts such that new blocks are found every five minutes on average.
 
 **Wallet:**
-A file that stores private keys. Wallets typically contain a software client which allows its owner to view and create transactions on the  blockchain. Decred's native wallet daemon, can be accesseed via [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/), which provides a GUI interface, as well as the Command Line Interface (CLI) form (for advanced users). Decred also has a [web wallet](https://docs.decred.org/getting-started/user-guides/web/) and is supported by numerous [3rd party wallets](https://decred.org/downloads/).
+A file that stores private keys. Wallets allow its owner to view and create transactions on the blockchain. Decred's native wallet daemon can be accesseed via [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/), which provides a GUI interface, as well as the [Command Line Interface (CLI) wallet](https://docs.decred.org/getting-started/user-guides/cli-installation/) (for advanced users). Decred is also supported by numerous [3rd party wallets](https://decred.org/downloads/).
 
 **Seed:** 
 A series of 33 words that is used to generate the private key for a wallet. Anyone who has the seed for a wallet can spend any DCR it holds.
