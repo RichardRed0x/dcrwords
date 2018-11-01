@@ -15,7 +15,9 @@ See consensus rules.
 The data structure transactions are bundled into before being written into the distributed ledger. Decred's difficulty adjusts such that new blocks are found every five minutes on average.
 
 **Wallet:**
-A file that stores private keys. Wallets allow its owner to view and create transactions on the blockchain. Decred's native wallet daemon can be accesseed via [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/), which provides a GUI interface, as well as the [Command Line Interface (CLI) wallet](https://docs.decred.org/getting-started/user-guides/cli-installation/) (for advanced users). Decred is also supported by numerous [3rd party wallets](https://decred.org/downloads/).
+A file that stores private keys. Wallets allow their owner to view and create transactions on the blockchain. The Decred team maintains a GUI wallet (Decrediton) and Command Line Interface (CLI) wallet tools for advanced users. Decred is also supported by numerous 3rd party wallets.
+
+Wallets allow its owner to view and create transactions on the blockchain. Decred's native wallet daemon can be accesseed via [Decredition](https://docs.decred.org/getting-started/user-guides/decrediton-setup/), which provides a GUI interface, as well as the [Command Line Interface (CLI) wallet](https://docs.decred.org/getting-started/user-guides/cli-installation/) (for advanced users). Decred is also supported by numerous [3rd party wallets](https://decred.org/downloads/).
 
 **Seed:** 
 A series of 33 words that is used to generate the private key for a wallet. Anyone who has the seed for a wallet can spend any DCR it holds.
@@ -111,7 +113,9 @@ Transactions relating to ticket buying and ticket voting rewards.
 Transactions waiting to be mined.
 
 **Block header:** 
-A 120 byte (when serialized) header used to identify a particular block, which is hashed repeatedly to create proof of work for mining rewards. 
+Metadata at the beginning of a block that defines information about the block. The hash of a block header is the main way of identifying a block. 
+
+identify a particular block, which is hashed repeatedly to create proof of work for mining rewards. 
 
 **Stakepool:** 
 see Voting Service Provider
@@ -130,9 +134,6 @@ The [Decred Treasury](https://explorer.dcrdata.org/address/Dcur2mcGjmENx4DhNqDct
 
 **[Politeia](https://docs.decred.org/governance/politeia/):** 
 A system for facilitating the [submission and discussion of proposals](https://proposals.decred.org/) in an environment with transparent censorship. 
-
-**Proof-of-Work mining:**
-The process by which Proof-of-Work (PoW) miners validate blocks of transactions. In this process, miners compute hashes until the block header is below the target difficulty. 
 
 **Difficulty:**
 Difficulty is a measure of how difficult it is to mine a new block (i.e. find a hash below a given target). In Decred, the PoW difficulty is calculated from the exponentially weighted average of differences in previous block times.  
